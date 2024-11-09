@@ -4,25 +4,25 @@ import { useWallet } from '@solana/wallet-adapter-react'
 import { WalletButton } from '../solana/solana-provider'
 import { AppHero, ellipsify } from '../ui/ui-layout'
 import { ExplorerLink } from '../cluster/cluster-ui'
-import { useTokenvestingProgram } from './tokenvesting-data-access'
-import { TokenvestingCreate, TokenvestingList } from './tokenvesting-ui'
+import { useVestingProgram } from './vesting-data-access'
+import { VestingCreate, TokenvestingList } from './vesting-ui'
 
 export default function TokenvestingFeature() {
   const { publicKey } = useWallet()
-  const { programId } = useTokenvestingProgram()
+  const { programId } = useVestingProgram()
 
   return publicKey ? (
     <div>
       <AppHero
         title="Tokenvesting"
         subtitle={
-          'Create a new account by clicking the "Create" button. The state of a account is stored on-chain and can be manipulated by calling the program\'s methods (increment, decrement, set, and close).'
+          'Create a new account by clicking the "Create" button.'
         }
       >
         <p className="mb-6">
           <ExplorerLink path={`account/${programId}`} label={ellipsify(programId.toString())} />
         </p>
-        <TokenvestingCreate />
+        <VestingCreate />
       </AppHero>
       <TokenvestingList />
     </div>

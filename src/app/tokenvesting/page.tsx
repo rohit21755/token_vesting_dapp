@@ -1,4 +1,4 @@
-import TokenvestingFeature from '@/components/tokenvesting/tokenvesting-feature'
+import TokenvestingFeature from '@/components/vesting/vesting-feature'
 
 export default function Page() {
   return <TokenvestingFeature />
